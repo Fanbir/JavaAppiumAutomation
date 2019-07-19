@@ -18,7 +18,6 @@ public class MainClassTest extends MainClass{
         Assert.assertFalse( a + " - значение должно быть больше " + this.getClassNumber(), this.getClassNumber() > a);
     }
 
-
     @Test
     @Description("Test3")
     public void testGetClassString() {
