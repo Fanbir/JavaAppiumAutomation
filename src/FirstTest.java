@@ -119,6 +119,30 @@ public class FirstTest {
 
     }
 
+    @Test
+    @Description("Ex2")
+    public void  testSearchTextInput() {
+
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text,'Search Wikipedia')]"),
+                "Cannot find search input 'Search Wikipedia'",
+                5
+        );
+
+        WebElement textSearch_element = waitForElementPresent(
+                By.id("org.wikipedia:id/search_src_text"),
+                "Cannot find input",
+                5
+        );
+
+        String textSearch_title = textSearch_element.getAttribute("text");
+        Assert.assertEquals(
+                "Text @Search...@ cannot find ",
+                "Search…",
+                textSearch_title);
+
+    }
+
     private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
         wait.withMessage(error_message + "\n");
